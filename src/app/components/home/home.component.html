@@ -1,0 +1,116 @@
+
+<div class="row mt-4">
+    <div class="col">
+        <div class="card bg-dark text-light text-center">
+            <div class="card-header text-info">
+                Port Stock
+            </div>
+            <div class="card-body">
+                <table class="w-100">
+                    <thead>
+                        <td></td>
+                        <td> P1 </td>
+                        <td> P2 </td>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td> KSPL </td>
+                            <td> {{inboundlist.Port_stock.Stock_Kspl_P1}} </td>
+                            <td> {{inboundlist.Port_stock.Stock_Kspl_P2}} </td>
+                        </tr>
+                        <tr>
+                            <td> GPL </td>
+                            <td> {{inboundlist.Port_stock.Stock_Gpl_P1}} </td>
+                            <td> {{inboundlist.Port_stock.Stock_Gpl_P2}} </td>
+                        </tr>
+                        <tr>
+                            <td> Vessel Stock </td>
+                            <td> {{inboundlist.Port_stock.vessel_Stock_Kspl_P1}} </td>
+                            <td> {{inboundlist.Port_stock.vessel_Stock_Kspl_P2}} </td>
+                        </tr>
+                        <tr>
+                            <td> Total </td>
+                            
+                            <td> {{ total_port_stock_P1 }} </td>
+                            <td> {{ total_port_stock_P2 }} </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-dark  text-light">
+            <div class=" card-header text-center text-info">
+                Plant Stock
+            </div>
+            <div class=" card-body">
+                    <p class="mb-2"> P1 Days : {{ inboundlist.P1_P2_days.P1_days }}</p>
+                    <p class="mb-2" > P2 Days : {{ inboundlist.P1_P2_days.P2_days }}</p>
+                    <p class="mb-2" > Complex Days : {{ inboundlist.P1_P2_days.complex_days }} </p>
+            </div>
+        </div>
+    </div>
+    <div class="col">
+        <div class="card bg-dark text-center text-light">
+            <div class="card-header text-info">
+                In Transit Stock
+            </div>
+            <div class="card-body">
+                    <table class="w-100">
+                            <thead>
+                                <td></td>
+                                <td> P1 </td>
+                                <td> P2 </td>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td> Bulker </td>
+                                    <td> {{ inboundlist.Transit_Stock.Bulker_P1 }} </td>
+                                    <td> {{ inboundlist.Transit_Stock.Bulker_P2 }} </td>
+                                </tr>
+                                <tr>
+                                    <td> Truck </td>
+                                    <td> {{ inboundlist.Transit_Stock.Truck_P1 }} </td>
+                                    <td> {{ inboundlist.Transit_Stock.Truck_P2 }} </td>
+                                </tr>
+                                <tr>
+                                    <td> BTAP </td>
+                                    <td> {{inboundlist.Transit_Stock.BTAP_P1}} </td>
+                                    <td> {{inboundlist.Transit_Stock.BTAP_P2}} </td>
+                                </tr>
+                                <tr>
+                                    <td> Total </td>
+                                    <td> {{total_transit_stock_P1}} </td>
+                                    <td> {{total_transit_stock_P2}} </td>
+                                </tr>
+                            </tbody>
+                        </table>
+            </div>
+        </div>
+    </div>
+    <div class="col ">
+        <div class="card bg-dark text-center text-light">
+            <div class=" card-header text-info">
+                BTAP - LNI + KSPL
+            </div>
+            <div class="card-body">
+                    ..
+            </div>
+        </div>
+    </div>
+    <div class="col ">
+        <div class="card bg-dark text-center text-light ">
+            <div class=" card-header text-info">
+                Plant Stock
+            </div>
+            <div class="card-body">
+                ..
+            </div>
+        </div>
+    </div>
+</div>
+<!--
+<h1>{{inboundlist.consumption.P1_Consumption}}</h1>
+<h1>{{jsondatalist}}</h1>
+-->
