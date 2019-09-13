@@ -14,6 +14,61 @@ export class HomeComponent implements OnInit {
   total_port_stock_P2:number;
   total_transit_stock_P1:number;
   total_transit_stock_P2:number;
+  LNJ = [];
+  LNJ_LNJ:number = 0;
+  LNJ_transit:number = 0;
+  LNJ_JHRS:number = 0;
+  KSPL = [];
+  KSPL_KSPL:number = 0;
+  KSPL_transit:number = 0;
+  KSPL_JHRS:number = 0;
+  // LNJrakes = {
+  //   'transit':7,
+  //   'V1':{
+  //     'current_station': 'Brundmal',
+  //     'Load_status':'L',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'V2':{
+  //     'current_station': 'Sason',
+  //     'Load_status':'L',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'V3':{
+  //     'current_station': 'Bargarh Road',
+  //     'Load_status':'E',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'V4':{
+  //     'current_station': 'Ambodala',
+  //     'Load_status':'E',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'V5':{
+  //     'current_station': 'Badmal',
+  //     'Load_status':'L',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'V6':{
+  //     'current_station': 'Loisingha',
+  //     'Load_status':'L',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'V7':{
+  //     'current_station': 'Bissamcuttack',
+  //     'Load_status':'E',
+  //     'src':'P2',
+  //     'destination':'LNJ'
+  //   },
+  //   'LNJ':0,
+  //   'Jharsugada':0
+  // }
 
   constructor(private dataS:VedantaService) { }
 
@@ -51,9 +106,46 @@ export class HomeComponent implements OnInit {
       }
       console.log(this.inboundlist['Port_stock']);
       this.jsondatalist = data.success.latest.data.json_data;
-      console.log(this.jsondatalist);
+      for(let key in this.jsondatalist){
+          console.log(key);
+          if(this.jsondatalist[key].current_station == 'LNJ'){
+            this.LNJ.push({'LNJ':this.jsondatalist[key]});
+            this.LNJ_LNJ += 1;
+          }
+          if(this.jsondatalist[key].current_station == 'KSPL'){
+            this.KSPL.push({'KSPL':this.jsondatalist[key]});
+            this.KSPL_KSPL += 1;
+          }
+          if(this.jsondatalist[key].current_station == 'JHRS' && this.jsondatalist[key].destination == 'LNJ' ){
+            this.LNJ.push({'JHRS':this.jsondatalist[key]});
+            this.LNJ_JHRS += 1;
+          }
+          if(this.jsondatalist[key].current_station == 'JHRS' && this.jsondatalist[key].destination == 'KSPL' ){
+            this.KSPL.push({'JHRS':this.jsondatalist[key]});
+            this.KSPL_JHRS += 1;
+          }
+          if(this.jsondatalist[key].destination == 'LNJ'){
+            this.LNJ.push(this.jsondatalist[key]);
+            this.LNJ_transit += 1;
+          }
+          if(this.jsondatalist[key].destination == 'KSPL'){
+            this.KSPL.push(this.jsondatalist[key]);
+            this.KSPL_transit += 1;
+          }
+      }
+      console.log(this.LNJ);
+      console.log(this.KSPL);
+
+      document.getElementById('load').style.visibility="hidden";
+      document.getElementById('contents').style.visibility="visible";
+
+      
+      
+      //console.log(this.jsondatalist);
+      //console.log(this.jsondatalist['VED-1']);
     });
-    console.log(this.inboundlist);
+    //console.log(this.inboundlist);
+    //console.log(this.LNJrakes);
   }
 
 }

@@ -1,3 +1,6 @@
+<div class="load" id="load"></div>
+  <div class="contents" id="contents" style="visibility: hidden;" >
+
 
 <div class="row mt-4">
     <div class="col">
@@ -90,13 +93,14 @@
         </div>
     </div>
     <div class="col ">
-        <div class="card bg-dark text-center text-light">
-            <div class=" card-header text-info">
-                BTAP - LNI + KSPL
+        <div class="card bg-dark  text-light">
+            <div class=" card-header text-center text-info">
+                Consumption
             </div>
             <div class="card-body">
-                    ..
-            </div>
+                   <p class="mb-1" > P1 Consumption : {{ inboundlist.consumption.P1_Consumption }} </p>
+                   <p class="mb-1" > P2 Consumption : {{ inboundlist.consumption.P2_Consumption }} </p>
+            </div> 
         </div>
     </div>
     <div class="col ">
@@ -105,11 +109,127 @@
                 Plant Stock
             </div>
             <div class="card-body">
-                ..
+                <p> {{ inboundlist.Plant_Stock.Planned_Stock }} vs {{ inboundlist.Plant_Stock.Actual_Stock }} </p>
+                <p> {{ inboundlist.P1_P2_days.P1_days + inboundlist.P1_P2_days.P2_days }} </p>
             </div>
         </div>
     </div>
 </div>
+<br>
+<div class="row">
+    <div class="col"></div>
+    <div class="col-4">
+        <div class="card bg-dark text-center text-info">
+            BTAP Status
+        </div>
+    </div>
+    <div class="col"></div>
+    <div class="col-4">
+        <div class="card bg-dark text-center text-info">
+            Bulker / Truck Status
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+<br>
+<div class="row text-light container">
+    <div class="col ml-4 mr-1 " style="border:solid 1px black;"  >
+        <div class="row">
+            <div class="col-4 pl-0 pr-0 bg-dark">
+                <div class="mb-2 card-header">
+                    Lanjigarh <span class="float-right"  > {{LNJ_LNJ}} </span>
+                </div>
+                <div class="mb-2 card-body" *ngIf="LNJ.LNJ">
+                    <b> {{ LNJ.LNJ.current_station }} </b>
+                    <span class="float-right p-2 bg-success" *ngIf="LNJ[LNJ].load_status == 'L'"  > {{LNJ[LNJ].load_status}} </span>
+                    <span class="float-right p-2 bg-danger" *ngIf="LNJ[LNJ].load_status == 'E'"  > {{LNJ[LNJ].load_status}} </span>
+                </div>
+                <div class="p-0 pl-4 card-body" *ngIf="!(LNJ.LNJ)">
+                    <b>No Rakes Arrived </b>
+                </div>
+                <div class="mb-2 card-header">
+                        Transit <span class="float-right" > {{LNJ_transit}} </span>
+                </div>
+                <div class="card-body pt-2 pb-2">
+                    <p  *ngFor="let item of LNJ | keyvalue" class="pt-0 pb-0 mb-1" >
+                            {{LNJ[item.key].current_station}}  
+                            <span class="float-right p-2  bg-success" *ngIf="LNJ[item.key].load_status == 'L'"  >  </span>
+                            <span class="float-right p-2 bg-danger" *ngIf="LNJ[item.key].load_status == 'E'"  >  </span>
+                    </p>
+                   <!-- <div *ngFor="let item of LNJrakes | keyvalue">
+                            <b>{{item.key}}</b> : <b>{{item.value}}</b>
+                    </div> -->
+                </div>
+                <div class="mb-2 card-header">
+                        Jharsuguda <span class="float-right" > {{LNJ_JHRS}} </span>
+                </div>
+                <div class="mb-2 card-body" *ngIf="LNJ.JHRS">
+                        <b> {{ LNJ.JHRS.current_station }} </b>
+                        <span class="float-right p-2 bg-success" *ngIf="LNJ[LNJ].load_status == 'L'"  > {{LNJ[JHRS].load_status}} </span>
+                        <span class="float-right p-2 bg-danger" *ngIf="LNJ[LNJ].load_status == 'E'"  > {{LNJ[JHRS].load_status}} </span>
+                </div>
+                <div class="p-0 pl-4 card-body mb-2" *ngIf="!(LNJ.JHRS)">
+                    <b>No Rakes at the Source</b>
+                </div>
+                <div class="mb-2 card-footer">
+                 Total rakes in circuit  <span class="float-right" > {{ LNJ_LNJ + LNJ_transit + LNJ_JHRS}} </span>
+                </div>
+            </div>
+            <div class="col">
+                <br><br><br><br><br><br>
+                <span > Empty Rake <span class="float-right p-2 pr-4 pl-4  bg-success"  > </span> </span>
+                <span > Loaded Rake <span class="float-right p-2 pr-4 pl-4  bg-danger"  > </span>  </span>
+            </div>
+            <div class="col-4 pl-0 pr-0 bg-dark">
+                    <div class="mb-2 card-header">
+                            KSPL <span class="float-right"  > {{KSPL_KSPL}} </span>
+                        </div>
+                        <div class="mb-2 card-body" *ngIf="KSPL.KSPL">
+                            <b> {{ KSPL.KSPL.current_station }} </b>
+                            <span class="float-right p-2 bg-success" *ngIf="KSPL[KSPL].load_status == 'L'"  > {{KSPL[KSPL].load_status}} </span>
+                            <span class="float-right p-2 bg-danger" *ngIf="KSPL[KSPL].load_status == 'E'"  > {{KSPL[KSPL].load_status}} </span>
+                        </div>
+                        <div class="p-0 pl-4 card-body" *ngIf="!(KSPL[KSPL])">
+                            <b>No Rakes Arrived </b>
+                        </div>
+                        <div class="mb-2 card-header">
+                            Transit <span class="float-right" > {{KSPL_transit}} </span>
+                        </div>
+                        <div class="card-body pt-2 pb-2">
+                            <p  *ngFor="let item of KSPL | keyvalue" class="pt-0 pb-0 mb-1" >
+                                    {{KSPL[item.key].current_station}}  
+                                    <span class="float-right p-2  bg-success" *ngIf="KSPL[item.key].load_status == 'L'"  >  </span>
+                                    <span class="float-right p-2 bg-danger" *ngIf="KSPL[item.key].load_status == 'E'"  >  </span>
+                            </p>
+                           <!-- <div *ngFor="let item of LNJrakes | keyvalue">
+                                    <b>{{item.key}}</b> : <b>{{item.value}}</b>
+                            </div> -->
+                        </div>
+                        <div class="mb-2 card-header">
+                                Jharsuguda <span class="float-right" > {{KSPL_JHRS}} </span>
+                        </div>
+                        <div class="mb-2 card-body" *ngIf="KSPL.JHRS">
+                                <b> {{ KSPL.JHRS.current_station }} </b>
+                                <span class="float-right p-2 bg-success" *ngIf="KSPL[JHRS].load_status == 'L'"  > {{KSPL[JHRS].load_status}} </span>
+                                <span class="float-right p-2 bg-danger" *ngIf="KSPL[JHRS].load_status == 'E'"  > {{KSPL[JHRS].load_status}} </span>
+                        </div>
+                        <div class="p-0 pl-4 card-body mb-2" *ngIf="!(KSPL.JHRS)">
+                            <b>No Rakes at the Source</b>
+                        </div>
+                        <div class="mb-2 card-footer">
+                         Total rakes in circuit  <span class="float-right" > {{ KSPL_KSPL + KSPL_transit + KSPL_JHRS}} </span>
+                        </div>
+            </div>
+        </div>
+    </div>
+    <div class="col card text-center bg-dark"  >
+       s
+    </div>
+</div>
+
+</div>
+
+
 <!--
 <h1>{{inboundlist.consumption.P1_Consumption}}</h1>
 <h1>{{jsondatalist}}</h1>
