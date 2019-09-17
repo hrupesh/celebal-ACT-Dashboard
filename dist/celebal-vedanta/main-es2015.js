@@ -32,7 +32,20 @@ webpackEmptyAsyncContext.id = "./$$_lazy_route_resource lazy recursive";
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\r\n<div class=\"ml-4 mr-4\">\r\n    <app-home></app-home>\r\n</div>");
+/* harmony default export */ __webpack_exports__["default"] = ("<app-header></app-header>\r\n<router-outlet></router-outlet>\r\n");
+
+/***/ }),
+
+/***/ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/caledarcomponent/caledarcomponent.component.html":
+/*!*******************************************************************************************************************!*\
+  !*** ./node_modules/raw-loader/dist/cjs.js!./src/app/components/caledarcomponent/caledarcomponent.component.html ***!
+  \*******************************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = ("<!--<div class=\"\">\n    <div class=\"row\">\n        <div  *ngFor=\"let item of plant_details | keyvalue ;\" class=\"col-4 card pb-4 pl-0 pr-0\" >\n            <div class=\"card-header\">\n                {{item.key}} \n            </div>\n             {{item.value.btap.arrival.p1}}\n        </div>\n    </div>\n</div> -->\n\n\n\n<div class=\"load\" id=\"load\"></div>\n  <div class=\"contents\" id=\"contents\" style=\"visibility: hidden;\" >\n    <div class=\"display-4 text-info m-4 text-center\">\n        Data Calendar for {{payload.month}}/{{payload.year}}\n    </div>\n\n    <div class=\"row \">\n        <div class=\"col-5\"></div>\n        <div class=\"col-3 center text-center text-info\" style=\"font-size:1.1rem;\">\n        <form (ngSubmit)=\"onSubmit()\">\n            <label for=\"month\" class=\"form-group label\">Enter Month:</label>\n            <input type=\"number\" name=\"month\" required max=\"12\" min=\"1\"  class=\"form-control\" [(ngModel)]=\"payload.month\">\n            <label for=\"year\" class=\"form-group label mt-2\" >Enter Year:</label>\n            <input type=\"number\" name=\"year\" required max=\"2019\" min=\"2000\" class=\"form-control\" [(ngModel)]=\"payload.year\">\n            <button type=\"submit\" class=\"btn btn-block btn-outline-info mt-4\" >Get Data</button>        \n        </form>\n        </div>\n        <div class=\"col-5\"></div>\n    </div>\n    \n\n\n<div class=\"mt-4\" style=\"margin-left:5%;margin-right:5%;\">  \n        <div class=\"row text-center\">\n            <div class=\"col-2\"></div>\n            <div  *ngFor=\"let item of stock | keyvalue ;let i = index;\" class=\"col-2 card pb-4 pl-0 pr-0\"  style=\"font-size: 0.9rem;\" >\n                <div class=\"card-header text-right text-info\" *ngIf=\"item.value\" >\n                    <span class=\"badge badge-pill badge-primary\" style=\"font-size: 1.2rem;\" ><b> {{item.key.substring(8,10)}} </b></span>\n                </div>\n                <div class=\"card-body\">\n                <table>\n                    <thead>\n                        <tr>\n                            <th>  </th>\n                            <th> P1 </th>\n                            <th> P2 </th>\n                        </tr>\n                    </thead>\n                    <tbody class=\"p-0\">\n                        <tr *ngIf=\"item.value.plant.p1 != null\">\n                            <th>Plant</th>\n                            <td> {{item.value.plant.p1}}</td>\n                            <td> {{item.value.plant.p2}}</td>\n                        </tr>\n                        <tr *ngIf=\"item.value.transit\">\n                            <th>Transit</th>\n                            <td> {{item.value.transit.p1}}</td>\n                            <td> {{item.value.transit.p2}}</td>\n                        </tr>\n                        <tr *ngIf=\"item.value.port\">\n                            <th>Port</th>\n                            <td> {{item.value.port.p1}}</td>\n                            <td> {{item.value.port.p2}}</td>\n                        </tr>\n                        <tr class=\"text-center\" *ngIf=\"plant_details[item.key]\">\n                            <th>BTAP</th>\n                        </tr>\n                        <tr *ngIf=\"plant_details[item.key]\">\n                            <th>Arrival</th>\n                            <td> {{plant_details[item.key].btap.arrival.p1}}</td>\n                            <td> {{plant_details[item.key].btap.arrival.p2}}</td>\n                        </tr>\n                        <tr *ngIf=\"plant_details[item.key]\">\n                            <th>Departure</th>\n                            <td> {{plant_details[item.key].btap.departure.p1}}</td>\n                            <td> {{plant_details[item.key].btap.departure.p2}}</td>\n                        </tr>\n                        <tr class=\"text-center\" *ngIf=\"plant_details[item.key]\">\n                            <th>Bulker</th>\n                        </tr>\n                        <tr *ngIf=\"plant_details[item.key]\">\n                            <th>Arrival</th>\n                            <td> {{plant_details[item.key].bulker.arrival.p1}}</td>\n                            <td> {{plant_details[item.key].bulker.arrival.p2}}</td>\n                        </tr>\n                        <tr *ngIf=\"plant_details[item.key]\">\n                            <th>Departure</th>\n                            <td> {{plant_details[item.key].bulker.departure.p1}}</td>\n                            <td> {{plant_details[item.key].bulker.departure.p2}}</td>\n                        </tr>\n                        <tr class=\"text-center\" *ngIf=\"plant_details[item.key]\">\n                            <th>Truck</th>\n                        </tr>\n                        <tr *ngIf=\"plant_details[item.key]\">\n                            <th>Arrival</th>\n                            <td> {{plant_details[item.key].truck.arrival.p1}}</td>\n                            <td> {{plant_details[item.key].truck.arrival.p2}}</td>\n                        </tr>\n                        <tr *ngIf=\"plant_details[item.key]\">\n                            <th>Departure</th>\n                            <td> {{plant_details[item.key].truck.departure.p1}}</td>\n                            <td> {{plant_details[item.key].truck.departure.p2}}</td>\n                        </tr>\n                    </tbody>\n                </table>\n                </div>\n            </div>\n        </div>\n    </div>\n    </div>");
 
 /***/ }),
 
@@ -45,7 +58,7 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-dark\">\n    <a class=\"navbar-brand text-center m-auto text-info\" href=\"#\">\n       <h1 style=\"letter-spacing: 2.5px;font-size: 1.6rem;\" > ACT - Inbound Logistics Dashboard - Real Time </h1>\n    </a>\n  </nav>");
+/* harmony default export */ __webpack_exports__["default"] = ("<nav class=\"navbar navbar-light bg-dark\">\n    <a class=\"navbar-brand text-center m-auto text-info\" routerLink=\"\">\n       <h1 style=\"letter-spacing: 2.5px;font-size: 1.6rem;\" > ACT - Inbound Logistics Dashboard - Real Time </h1>\n    </a>\n    <a  routerLink=\"calendar\" class=\"nav-link float-right\" >Calendar</a>\n  </nav>");
 
 /***/ }),
 
@@ -291,6 +304,43 @@ function __importDefault(mod) {
 
 /***/ }),
 
+/***/ "./src/app/app-routing.module.ts":
+/*!***************************************!*\
+  !*** ./src/app/app-routing.module.ts ***!
+  \***************************************/
+/*! exports provided: AppRoutingModule */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AppRoutingModule", function() { return AppRoutingModule; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _angular_router__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/router */ "./node_modules/@angular/router/fesm2015/router.js");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _components_caledarcomponent_caledarcomponent_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/caledarcomponent/caledarcomponent.component */ "./src/app/components/caledarcomponent/caledarcomponent.component.ts");
+
+
+
+
+
+const routes = [
+    { path: '', component: _components_home_home_component__WEBPACK_IMPORTED_MODULE_3__["HomeComponent"] },
+    { path: 'calendar', component: _components_caledarcomponent_caledarcomponent_component__WEBPACK_IMPORTED_MODULE_4__["CaledarcomponentComponent"] },
+];
+let AppRoutingModule = class AppRoutingModule {
+};
+AppRoutingModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["NgModule"])({
+        imports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forRoot(routes)],
+        exports: [_angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"]]
+    })
+], AppRoutingModule);
+
+
+
+/***/ }),
+
 /***/ "./src/app/app.component.css":
 /*!***********************************!*\
   !*** ./src/app/app.component.css ***!
@@ -349,9 +399,15 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/platform-browser */ "./node_modules/@angular/platform-browser/fesm2015/platform-browser.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
 /* harmony import */ var _angular_common_http__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @angular/common/http */ "./node_modules/@angular/common/fesm2015/http.js");
-/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
-/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
-/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/components/header/header.component.ts");
+/* harmony import */ var _angular_forms__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! @angular/forms */ "./node_modules/@angular/forms/fesm2015/forms.js");
+/* harmony import */ var _app_component__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./app.component */ "./src/app/app.component.ts");
+/* harmony import */ var _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ./components/home/home.component */ "./src/app/components/home/home.component.ts");
+/* harmony import */ var _components_header_header_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./components/header/header.component */ "./src/app/components/header/header.component.ts");
+/* harmony import */ var _components_caledarcomponent_caledarcomponent_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./components/caledarcomponent/caledarcomponent.component */ "./src/app/components/caledarcomponent/caledarcomponent.component.ts");
+/* harmony import */ var _app_routing_module__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./app-routing.module */ "./src/app/app-routing.module.ts");
+
+
+
 
 
 
@@ -364,18 +420,103 @@ let AppModule = class AppModule {
 AppModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_2__["NgModule"])({
         declarations: [
-            _app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"],
-            _components_home_home_component__WEBPACK_IMPORTED_MODULE_5__["HomeComponent"],
-            _components_header_header_component__WEBPACK_IMPORTED_MODULE_6__["HeaderComponent"]
+            _app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"],
+            _components_home_home_component__WEBPACK_IMPORTED_MODULE_6__["HomeComponent"],
+            _components_header_header_component__WEBPACK_IMPORTED_MODULE_7__["HeaderComponent"],
+            _components_caledarcomponent_caledarcomponent_component__WEBPACK_IMPORTED_MODULE_8__["CaledarcomponentComponent"]
         ],
         imports: [
             _angular_platform_browser__WEBPACK_IMPORTED_MODULE_1__["BrowserModule"],
             _angular_common_http__WEBPACK_IMPORTED_MODULE_3__["HttpClientModule"],
+            _app_routing_module__WEBPACK_IMPORTED_MODULE_9__["AppRoutingModule"],
+            _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
         ],
         providers: [],
-        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_4__["AppComponent"]]
+        bootstrap: [_app_component__WEBPACK_IMPORTED_MODULE_5__["AppComponent"]]
     })
 ], AppModule);
+
+
+
+/***/ }),
+
+/***/ "./src/app/components/caledarcomponent/caledarcomponent.component.css":
+/*!****************************************************************************!*\
+  !*** ./src/app/components/caledarcomponent/caledarcomponent.component.css ***!
+  \****************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony default export */ __webpack_exports__["default"] = (".date-box{\r\n    border: solid rgb(44, 44, 44) 1px;\r\n    padding: 60px 40px;\r\n    display: inline;\r\n    background: rgb(105, 105, 105);\r\n    margin: 0px !important;\r\n}\r\n\r\n/*# sourceMappingURL=data:application/json;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInNyYy9hcHAvY29tcG9uZW50cy9jYWxlZGFyY29tcG9uZW50L2NhbGVkYXJjb21wb25lbnQuY29tcG9uZW50LmNzcyJdLCJuYW1lcyI6W10sIm1hcHBpbmdzIjoiQUFBQTtJQUNJLGlDQUFpQztJQUNqQyxrQkFBa0I7SUFDbEIsZUFBZTtJQUNmLDhCQUE4QjtJQUM5QixzQkFBc0I7QUFDMUIiLCJmaWxlIjoic3JjL2FwcC9jb21wb25lbnRzL2NhbGVkYXJjb21wb25lbnQvY2FsZWRhcmNvbXBvbmVudC5jb21wb25lbnQuY3NzIiwic291cmNlc0NvbnRlbnQiOlsiLmRhdGUtYm94e1xyXG4gICAgYm9yZGVyOiBzb2xpZCByZ2IoNDQsIDQ0LCA0NCkgMXB4O1xyXG4gICAgcGFkZGluZzogNjBweCA0MHB4O1xyXG4gICAgZGlzcGxheTogaW5saW5lO1xyXG4gICAgYmFja2dyb3VuZDogcmdiKDEwNSwgMTA1LCAxMDUpO1xyXG4gICAgbWFyZ2luOiAwcHggIWltcG9ydGFudDtcclxufVxyXG4iXX0= */");
+
+/***/ }),
+
+/***/ "./src/app/components/caledarcomponent/caledarcomponent.component.ts":
+/*!***************************************************************************!*\
+  !*** ./src/app/components/caledarcomponent/caledarcomponent.component.ts ***!
+  \***************************************************************************/
+/*! exports provided: CaledarcomponentComponent */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "CaledarcomponentComponent", function() { return CaledarcomponentComponent; });
+/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
+/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_vedanta_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../services/vedanta.service */ "./src/app/services/vedanta.service.ts");
+
+
+
+let CaledarcomponentComponent = class CaledarcomponentComponent {
+    constructor(calendarS) {
+        this.calendarS = calendarS;
+        this.data = [];
+        this.plant_details = [];
+        this.stock = [];
+        this.payload = {
+            month: "7",
+            year: 2019
+        };
+    }
+    ngOnInit() {
+        this.calendarS.getC(this.payload).subscribe(data => {
+            this.data = data;
+            this.plant_details = data.success.data.plant_details;
+            this.stock = data.success.data.stock;
+            console.log(this.data);
+            console.log(data);
+            console.log(this.plant_details);
+            console.log(this.stock);
+            document.getElementById('load').style.visibility = "hidden";
+            document.getElementById('contents').style.visibility = "visible";
+        });
+    }
+    onSubmit() {
+        this.calendarS.getC(this.payload).subscribe(data => {
+            this.data = data;
+            this.plant_details = data.success.data.plant_details;
+            this.stock = data.success.data.stock;
+            console.log(this.data);
+            console.log(data);
+            console.log(this.plant_details);
+            console.log(this.stock);
+            document.getElementById('load').style.visibility = "hidden";
+            document.getElementById('contents').style.visibility = "visible";
+        });
+    }
+};
+CaledarcomponentComponent.ctorParameters = () => [
+    { type: _services_vedanta_service__WEBPACK_IMPORTED_MODULE_2__["VedantaService"] }
+];
+CaledarcomponentComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
+    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
+        selector: 'app-caledarcomponent',
+        template: tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! raw-loader!./caledarcomponent.component.html */ "./node_modules/raw-loader/dist/cjs.js!./src/app/components/caledarcomponent/caledarcomponent.component.html")).default,
+        styles: [tslib__WEBPACK_IMPORTED_MODULE_0__["__importDefault"](__webpack_require__(/*! ./caledarcomponent.component.css */ "./src/app/components/caledarcomponent/caledarcomponent.component.css")).default]
+    })
+], CaledarcomponentComponent);
 
 
 
@@ -551,11 +692,11 @@ let HomeComponent = class HomeComponent {
             this.jsondatalist = data.success.latest.data.json_data;
             for (let key in this.jsondatalist) {
                 console.log(key);
-                if (this.jsondatalist[key].current_station == 'LNJ') {
+                if (this.jsondatalist[key].current_station == "Brundamal ") {
                     this.LNJ.push({ 'LNJ': this.jsondatalist[key] });
                     this.LNJ_LNJ += 1;
                 }
-                if (this.jsondatalist[key].current_station == 'KSPL') {
+                if (this.jsondatalist[key].current_station == "Bobbili Jn") {
                     this.KSPL.push({ 'KSPL': this.jsondatalist[key] });
                     this.KSPL_KSPL += 1;
                 }
@@ -567,11 +708,11 @@ let HomeComponent = class HomeComponent {
                     this.KSPL.push({ 'JHRS': this.jsondatalist[key] });
                     this.KSPL_JHRS += 1;
                 }
-                if (this.jsondatalist[key].destination == 'LNJ') {
+                if (this.jsondatalist[key].destination == 'LNJ' && this.jsondatalist[key].current_station !== "Brundamal ") {
                     this.LNJ.push(this.jsondatalist[key]);
                     this.LNJ_transit += 1;
                 }
-                if (this.jsondatalist[key].destination == 'KSPL') {
+                if (this.jsondatalist[key].destination == 'KSPL' && this.jsondatalist[key].current_station !== "Bobbili Jn") {
                     this.KSPL.push(this.jsondatalist[key]);
                     this.KSPL_transit += 1;
                 }
@@ -626,11 +767,16 @@ const httpOptions = {
 let VedantaService = class VedantaService {
     constructor(http) {
         this.http = http;
+        this.apiUrl = "https://vedantaapi.azurewebsites.net";
     }
     getData() {
         var body = { "Date": "18-08-2019" };
-        const url = "https://vedantaapi.azurewebsites.net/inboundDesktop/Inbound/";
+        const url = this.apiUrl + '/inbounddesktop/Inbound/';
         return this.http.post(url, body, httpOptions);
+    }
+    getC(detail) {
+        const url = this.apiUrl + '/inbounddesktop/calender';
+        return this.http.post(url, detail, httpOptions);
     }
 };
 VedantaService.ctorParameters = () => [
