@@ -14,11 +14,19 @@ const httpOptions = {
 
 export class VedantaService {
 
+  apiUrl="https://vedantaapi.azurewebsites.net";
+
   constructor(private http:HttpClient) { }
 
   getData():Observable<any>{
     var body = {"Date":"18-08-2019"}
-    const url = "https://vedantaapi.azurewebsites.net/inboundDesktop/Inbound/";
+    const url = this.apiUrl + '/inbounddesktop/Inbound/';
     return this.http.post<any>(url,body,httpOptions);
+  }
+  
+  getC(detail:any):Observable<any>{
+    const url = this.apiUrl +'/inbounddesktop/calender';
+    return this.http.post<any>(url,detail,httpOptions);
+  
   }
 }

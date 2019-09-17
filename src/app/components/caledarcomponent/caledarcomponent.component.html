@@ -1,0 +1,113 @@
+<!--<div class="">
+    <div class="row">
+        <div  *ngFor="let item of plant_details | keyvalue ;" class="col-4 card pb-4 pl-0 pr-0" >
+            <div class="card-header">
+                {{item.key}} 
+            </div>
+             {{item.value.btap.arrival.p1}}
+        </div>
+    </div>
+</div> -->
+
+
+
+<div class="load" id="load"></div>
+  <div class="contents" id="contents" style="visibility: hidden;" >
+    <div class="display-4 text-info m-4 text-center">
+        Data Calendar for {{payload.month}}/{{payload.year}}
+    </div>
+
+    <div class="row ">
+        <div class="col-5"></div>
+        <div class="col-3 center text-center text-info" style="font-size:1.1rem;">
+        <form (ngSubmit)="onSubmit()">
+            <label for="month" class="form-group label">Enter Month:</label>
+            <input type="number" name="month" required max="12" min="1"  class="form-control" [(ngModel)]="payload.month">
+            <label for="year" class="form-group label mt-2" >Enter Year:</label>
+            <input type="number" name="year" required max="2019" min="2000" class="form-control" [(ngModel)]="payload.year">
+            <button type="submit" class="btn btn-block btn-outline-info mt-4" >Get Data</button>        
+        </form>
+        </div>
+        <div class="col-5"></div>
+    </div>
+    
+
+
+<div class="mt-4" style="margin-left:5%;margin-right:5%;">  
+        <div class="row text-center">
+            <div class="col-2"></div>
+            <div  *ngFor="let item of stock | keyvalue ;let i = index;" class="col-2 card pb-4 pl-0 pr-0"  style="font-size: 0.9rem;" >
+                <div class="card-header text-right text-info" *ngIf="item.value" >
+                    <span class="badge badge-pill badge-primary" style="font-size: 1.2rem;" ><b> {{item.key.substring(8,10)}} </b></span>
+                </div>
+                <div class="card-body">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>  </th>
+                            <th> P1 </th>
+                            <th> P2 </th>
+                        </tr>
+                    </thead>
+                    <tbody class="p-0">
+                        <tr *ngIf="item.value.plant.p1 != null">
+                            <th>Plant</th>
+                            <td> {{item.value.plant.p1}}</td>
+                            <td> {{item.value.plant.p2}}</td>
+                        </tr>
+                        <tr *ngIf="item.value.transit">
+                            <th>Transit</th>
+                            <td> {{item.value.transit.p1}}</td>
+                            <td> {{item.value.transit.p2}}</td>
+                        </tr>
+                        <tr *ngIf="item.value.port">
+                            <th>Port</th>
+                            <td> {{item.value.port.p1}}</td>
+                            <td> {{item.value.port.p2}}</td>
+                        </tr>
+                        <tr class="text-center" *ngIf="plant_details[item.key]">
+                            <th>BTAP</th>
+                        </tr>
+                        <tr *ngIf="plant_details[item.key]">
+                            <th>Arrival</th>
+                            <td> {{plant_details[item.key].btap.arrival.p1}}</td>
+                            <td> {{plant_details[item.key].btap.arrival.p2}}</td>
+                        </tr>
+                        <tr *ngIf="plant_details[item.key]">
+                            <th>Departure</th>
+                            <td> {{plant_details[item.key].btap.departure.p1}}</td>
+                            <td> {{plant_details[item.key].btap.departure.p2}}</td>
+                        </tr>
+                        <tr class="text-center" *ngIf="plant_details[item.key]">
+                            <th>Bulker</th>
+                        </tr>
+                        <tr *ngIf="plant_details[item.key]">
+                            <th>Arrival</th>
+                            <td> {{plant_details[item.key].bulker.arrival.p1}}</td>
+                            <td> {{plant_details[item.key].bulker.arrival.p2}}</td>
+                        </tr>
+                        <tr *ngIf="plant_details[item.key]">
+                            <th>Departure</th>
+                            <td> {{plant_details[item.key].bulker.departure.p1}}</td>
+                            <td> {{plant_details[item.key].bulker.departure.p2}}</td>
+                        </tr>
+                        <tr class="text-center" *ngIf="plant_details[item.key]">
+                            <th>Truck</th>
+                        </tr>
+                        <tr *ngIf="plant_details[item.key]">
+                            <th>Arrival</th>
+                            <td> {{plant_details[item.key].truck.arrival.p1}}</td>
+                            <td> {{plant_details[item.key].truck.arrival.p2}}</td>
+                        </tr>
+                        <tr *ngIf="plant_details[item.key]">
+                            <th>Departure</th>
+                            <td> {{plant_details[item.key].truck.departure.p1}}</td>
+                            <td> {{plant_details[item.key].truck.departure.p2}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>

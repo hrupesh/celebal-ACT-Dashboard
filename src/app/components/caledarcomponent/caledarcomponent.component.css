@@ -1,0 +1,7 @@
+.date-box{
+    border: solid rgb(44, 44, 44) 1px;
+    padding: 60px 40px;
+    display: inline;
+    background: rgb(105, 105, 105);
+    margin: 0px !important;
+}

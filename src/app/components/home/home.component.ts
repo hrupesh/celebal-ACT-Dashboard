@@ -108,11 +108,11 @@ export class HomeComponent implements OnInit {
       this.jsondatalist = data.success.latest.data.json_data;
       for(let key in this.jsondatalist){
           console.log(key);
-          if(this.jsondatalist[key].current_station == 'LNJ'){
+          if(this.jsondatalist[key].current_station == "Brundamal "){
             this.LNJ.push({'LNJ':this.jsondatalist[key]});
             this.LNJ_LNJ += 1;
           }
-          if(this.jsondatalist[key].current_station == 'KSPL'){
+          if(this.jsondatalist[key].current_station == "Bobbili Jn"){
             this.KSPL.push({'KSPL':this.jsondatalist[key]});
             this.KSPL_KSPL += 1;
           }
@@ -124,11 +124,11 @@ export class HomeComponent implements OnInit {
             this.KSPL.push({'JHRS':this.jsondatalist[key]});
             this.KSPL_JHRS += 1;
           }
-          if(this.jsondatalist[key].destination == 'LNJ'){
+          if(this.jsondatalist[key].destination == 'LNJ' && this.jsondatalist[key].current_station !== "Brundamal "){
             this.LNJ.push(this.jsondatalist[key]);
             this.LNJ_transit += 1;
           }
-          if(this.jsondatalist[key].destination == 'KSPL'){
+          if(this.jsondatalist[key].destination == 'KSPL' && this.jsondatalist[key].current_station !== "Bobbili Jn" ){
             this.KSPL.push(this.jsondatalist[key]);
             this.KSPL_transit += 1;
           }
